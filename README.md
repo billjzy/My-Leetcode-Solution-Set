@@ -1,5 +1,5 @@
 Data structure and algorithm training 
 ====================================
-#[Leetcode](http://leetcode.com)
+#[Leetcode problems](https://oj.leetcode.com/problems/)
 
 
