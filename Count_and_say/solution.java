@@ -18,7 +18,7 @@ public class solution{
              temp.append(current.charAt(i-1));//add number
              count=1;//reset count to 1
            }
-       }//if last consective chars are same
+       }//if last serveral consective chars are same
        temp.append(count);
        temp.append(current.charAt(current.length()-1));
        current=new String(temp);
