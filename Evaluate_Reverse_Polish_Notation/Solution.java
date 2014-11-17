@@ -1,5 +1,5 @@
 import java.util.*;
-public class Solution{
+public class solution{
    public static int evalRPN(String [] tokens){
       if (tokens.length==0) return 0;
       Stack<Integer> token=new Stack<Integer>();// token store the int
