@@ -1,5 +1,6 @@
 import java.util.*;
-public class Solution{
+
+public class Solution {
   public List<List<Integer>> levelOrderBottom(TreeNode root){
      List<List<Integer>> res = new LinkedList<>();
      if (root==null) return res;
@@ -14,12 +15,11 @@ public class Solution{
        if (n.right!=null) l.add(n.right);
        temp.add(n.val);
      } 
-
+  
      res.add(0,new LinkedList<Integer>(temp));
      temp.clear();
      cur = l;
      }
      return res;
-    
   }
 }
