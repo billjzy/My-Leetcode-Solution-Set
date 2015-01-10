@@ -7,23 +7,24 @@
  */
 import java.util.*;
 public class Solution{
-  public ArrayList<ArrayList<Integer>> combine(int n, int k){
-    ArrayList<ArrayList<Integer>> result= new ArrayList<ArrayList<Integer>>();
-    if (k>=n|| n<0||k<0) return null;
-    for (int j=1;j<=n-k+1;j++){
-    dfs(result, new ArrayList<Integer>(), j , k, n);
+  public List<List<Integer>> combine(int n, int k){
+    List<List<Integer>> result= new ArrayList<>();
+    if (k==0||n==0) return result;
+    for (int i=1;i<=n-k+1;i++){
+      dfs(result, new ArrayList<Integer>(), i, k, n);
     }
-    return result; 
+    return result;
   }
-  public void dfs(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> list, int start, int k, int n){
-    list.add(start); 
-    if (list.size()==k) {
+
+  private void dfs(List<List<Integer>> result, ArrayList<Integer> list, int start,int k, int n){
+      list.add(start);
+      if (list.size() == k) {
         result.add(new ArrayList<Integer>(list));
-        return ;
-     } 
-    for (int i=start+1; i<=n ; i++){
-     dfs(result, list, i, k, n);
-     list.remove(list.size()-1);
-  }
+      } 
+      for (int j=start+1;j<=n;j++){
+        dfs(result,list, j, k,n);
+      }
+      list.remove(list.size()-1);
+    }
 }
-}
+
