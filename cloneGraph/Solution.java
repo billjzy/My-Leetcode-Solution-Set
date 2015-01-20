@@ -4,23 +4,21 @@ import java.util.*;
 public class Solution{
   public UndirectedGraphNode cloneGraph(UndirectedGraphNode node){
     if (node == null) return null;
-    HashMap<UndirectedGraphNode, UndirectedGraphNode> mp = new HashMap<>();
+    Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
     UndirectedGraphNode head = new UndirectedGraphNode(node.label);
-    mp.put(node, head);
-
+    map.put(node, head);
     LinkedList<UndirectedGraphNode> list = new LinkedList<>();
     list.add(node);
-
-    while (!list.isEmpty()){
+    while (!list.isEmpty()) {
       UndirectedGraphNode temp = list.pollFirst();
       for (UndirectedGraphNode n : temp.neighbors){
-         if (!mp.containsKey(n)) {
-            list.add(n);
-            mp.put(n, new UndirectedGraphNode(n.label));
+         if (!map.containsKey(n)){
+           list.add(n);
+           map.put(n, new UndirectedGraphNode(n.label));
          }
-         mp.get(temp).neighbors.add(mp.get(n));
+         map.get(temp).neighbors.add(map.get(n));
       }
     }
-    return head;
+  return head;
   }
 }
