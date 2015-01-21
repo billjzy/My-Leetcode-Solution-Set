@@ -1,6 +1,6 @@
 /*Sort the array, then apply the two pointers 
- * approach. Using a HashSet to filter the 
- * unique result.
+ * approach. No hash set for dup check,much faster 
+ * .
  * */
 
 import java.util.*;
@@ -8,25 +8,27 @@ public class Solution{
   public List<List<Integer>> threeSum(int[] num){
     List<List<Integer>> result = new ArrayList<>();
     if (num.length<3) return result;
-    HashSet<ArrayList<Integer>> set = new HashSet<>();
     Arrays.sort(num);
     for (int i=0;i<num.length-2;i++){
-      int   j=i+1;
+      if (i==0||num[i]>num[i-1]){
+      int   start =i+1;
       int target = -num[i];
-      int k=num.length-1;
-      while (j<k){
-        if (num[j]+num[k] == target) {
-           ArrayList<Integer> temp = new ArrayList<Integer>();
+      int end=num.length-1;
+      while (start<end){
+        if (num[start]+num[end] == target) {
+           List<Integer> temp = new ArrayList<>();
            temp.add(num[i]);
-           temp.add(num[j]);
-           temp.add(num[k]);
-           if (set.add(temp)) result.add(temp);
-           j++;
-           k--;
+           temp.add(num[start]);
+           temp.add(num[end]);
+           start++;
+           end--;
+           while (start < end && num[start]==num[start-1]) start ++;
+           while (start<end && num[end]==num[end+1]) end--;
         }
-        else if (num[j]+num[k]>target) k--;
-        else j++;
+        else if (num[start]+num[end]>target) end--;
+        else start++;
       }
+    }
     }
       return result;
     }
