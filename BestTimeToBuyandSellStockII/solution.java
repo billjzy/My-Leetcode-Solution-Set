@@ -4,21 +4,11 @@
 * */
 public class solution{
    public int maxProfit(int [] prices){
-     if (prices.length==1||prices.length==0) return 0;
-     int maxP=0;
-     int start=0;
-     int cur=1;
-     while (cur<prices.length){
-        while (cur<prices.length&& prices[cur]>=prices[cur-1]){
-              cur++;       
-         }
-        if (cur<=prices.length){
-          maxP+=prices[cur]-prices[start];
-          if (cur==prices.length) break;
-          start=cur;
-          cur=start+1;
-        }
+     if(prices.length<=1) return 0;
+     int res = 0, start = 0;
+     for (int i=1;i<prices.length;i++){
+       res += prices[i]<prices[i-1]? 0:prices[i]-prices[i-1];
      }
-     return maxP;
+     return res;
    }
 }
