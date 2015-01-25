@@ -1,14 +1,17 @@
+/*use stack rather than linkedlist
+ * much better!*/
+
 import java.util.*;
 public class Solution{
   public void flatten(TreeNode root){
     if (root == null) return ;
-    LinkedList<TreeNode> temp = new LinkedList<>();
-    temp.add(root);
+    Stack<TreeNode> temp = new Stack<>();
+    temp.push(root);
     while (!temp.isEmpty()){
-      TreeNode node = temp.pollLast();
-      if (node.right!=null) temp.add(node.right);
-      if (node.left!=null) temp.add(node.left);
-      node.right=temp.peekLast();
+      TreeNode node = temp.pop();
+      if (node.right!=null) temp.push(node.right);
+      if (node.left!=null) temp.push(node.left);
+      node.right= temp.isEmpty()? null:temp.peek();
       node.left=null;
     }
   }
