@@ -3,16 +3,16 @@
  * */
 public class Solution{
    public int maxRevenue(int [] p, int n){
-      int [] temp = new int [n+1];
-      temp[0] = 0;
-      for(int i=1;i<=n;i++){
-        int q = 0;
-        for (int j=1 ;j<=i;j++){
-           q = Math.max(q, p[j] + temp[i-j]);
-        }
-        temp[i] = q;
+      int [] r = new int [n+1];
+      r[0] = 0;
+      for (int i = 1; i<=n;i++) {
+         int q =0;
+         for (int j=1; j<=i;j++) {
+           q = Math.max(q, p[j]+r[i-j]);
+         }
+         r[i] = q;
       }
-      return temp[n];
+      return r[n];
    }
 
    public static void main(String[] args){
