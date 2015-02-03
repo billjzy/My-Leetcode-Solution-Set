@@ -2,6 +2,7 @@ import java.util.*;
 public class Solution {
   public String fractionToDecimal(int numerator, int denominator) {
     StringBuilder res = new StringBuilder();
+    //determine if negative sign is needed
     res.append(((numerator>0) ^ (denominator>0)) ? "-":"" );
 
     long num = Math.abs((long)numerator);
