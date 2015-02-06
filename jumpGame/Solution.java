@@ -7,13 +7,9 @@ public class Solution{
   
    int max=0;
      for (int i=0; i<=max&&i<A.length;i++){
-        if (A[i]+i>max){
-          max=A[i]+i;
+        max = Math.max(A[i]+i, max);
         }
-        if (max==A.length-1){
-          return true;
-        }
-     }
-   return false;
+     if (max<A.length-1) return false;
+     else return true;
    }
 }
