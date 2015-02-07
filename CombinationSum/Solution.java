@@ -1,15 +1,15 @@
 import java.util.*;
 
 public class Solution{
-  public ArrayList<ArrayList<Integer>> combinationSum(int [] num, int target){
-     ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+  public List<List<Integer>> combinationSum(int [] num, int target){
+     List<List<Integer>> result = new ArrayList<>();
      if (num.length==0|| num==null) return result;
      Arrays.sort(num);
      dfs(result, new ArrayList<Integer>(), num, 0, target);
      return result;
 
   } 
-  private void dfs(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> list, int [] num, int index, int target){
+  private void dfs(List<List<Integer>> result, List<Integer> list, int [] num, int index, int target){
      if (target==0){
        result.add(new ArrayList<Integer>(list));
        return ;

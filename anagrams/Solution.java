@@ -1,7 +1,7 @@
 import java.util.*;
 public class Solution{
-   public ArrayList<String> anagrams(String[] strs){
-      HashMap<String, ArrayList<String>> map = new HashMap<>();
+   public List<String> anagrams(String[] strs){
+      Map<String,List<String>> map = new HashMap<>();
       for (int i=0; i< strs.length;i++){
         String s = strs[i]; 
         char [] temp = s.toCharArray();
@@ -10,13 +10,13 @@ public class Solution{
         if (map.containsKey(sortedS)){
            map.get(sortedS).add(s);
         }else {
-           ArrayList<String> list= new ArrayList<>();
+           List<String> list= new ArrayList<>();
            list.add(s);
            map.put(sortedS,list);
         }
       }
-      ArrayList<String> result= new ArrayList<>();
-      for (ArrayList<String> l: map.values()){
+      List<String> result= new ArrayList<>();
+      for (List<String> l: map.values()){
         if (l.size()>1){
           result.addAll(l);
         }

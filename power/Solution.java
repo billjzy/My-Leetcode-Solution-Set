@@ -5,6 +5,7 @@ public class Solution{
     if (n%2==0) {
      return half*half;
     }
+    //when n is odd, consider two possiblitites:  n>0 and n<0 
     else if (n>0){
        return half*half*x;
     }
